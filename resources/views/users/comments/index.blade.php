@@ -26,7 +26,7 @@
                         <span>最終更新日：{{$comment->updated_at}}</span>
                         <span><a href="{{route('comments.edit', ['shop' => $comment->shop_id, 'comment' => $comment->id])}}">編集</a></span>
                         <span>
-                            <form method="post" action="{{route('comments.delete', ['id' => $comment->id])}}">
+                            <form method="post" action="{{route('comments.delete', ['user' => $user->id, 'id' => $comment->id])}}">
                                 @csrf
                                 <input type="submit" value="削除" onclick="return confirm('本当に削除してもよろしいですか？')">
                             </form>

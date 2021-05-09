@@ -95,7 +95,7 @@
                         <input type="submit" value="退会" onclick="return confirm('本当に退会してもよろしいですか？')">
                     </form>
                 </li>
-                <li><a href="#">お気に入り登録カフェ一覧</a></li>
+                <li><a href="{{route('shops.favorite.index')}}">お気に入り登録カフェ一覧</a></li>
                 <li><a href="{{route('users.comments', ['user' => $user->id])}}">投稿した口コミ一覧</a></li>
             </ul>
         </div>

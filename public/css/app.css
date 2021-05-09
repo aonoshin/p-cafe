@@ -108,13 +108,15 @@ table {
 
 .side-bar .main-tema:nth-of-type(4),
 .side-bar .main-tema:nth-of-type(5),
-.side-bar .main-tema:nth-of-type(6) {
+.side-bar .main-tema:nth-of-type(6),
+.side-bar .main-tema:nth-of-type(7) {
   text-decoration: underline;
 }
 
 .side-bar .main-tema:nth-of-type(4):hover,
 .side-bar .main-tema:nth-of-type(5):hover,
-.side-bar .main-tema:nth-of-type(6):hover {
+.side-bar .main-tema:nth-of-type(6):hover,
+.side-bar .main-tema:nth-of-type(7):hover {
   opacity: 0.4;
 }
 
@@ -211,7 +213,7 @@ header ul li a i {
   align-items: center;
   text-align: center;
   width: 100%;
-  height: 300px;
+  height: 420px;
   background-size: cover;
   background-position: center;
 }
@@ -376,6 +378,91 @@ main nav ul li i {
 
 .admin-box-top ul li a:hover {
   background-color: #fff;
+  color: #b5901f;
+}
+
+.home-shops-rank {
+  width: 100%;
+  margin: 70px 0;
+}
+
+.home-shops-rank h2 {
+  text-align: center;
+  font-size: 25px;
+  color: #b5901f;
+  border-bottom: 2px solid #d1ac3b;
+  margin: 0 auto 20px;
+  width: 40%;
+}
+
+.home-shops-rank .shops-list {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.home-shops-rank .shops-list a {
+  border: 1px solid #d1ac3b;
+  background-color: #fff;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.home-shops-rank .shops-list a:hover {
+  transition: 0.5s;
+  transform: scale(1.1, 1.1);
+  opacity: 0.7;
+}
+
+.home-shops-rank .shops-list a .shop-list-name {
+  background-color: #f0e4c0;
+  padding: 10px;
+  font-size: 18px;
+  color: #b5901f;
+}
+
+.home-shops-rank .shops-list a img {
+  width: 100%;
+  height: 220px;
+}
+
+.home-shops-rank .shops-list a .shop-list-area {
+  background-color: #f0e4c0;
+  padding: 5px;
+  font-size: 15px;
+  color: #b5901f;
+}
+
+.home-shops-rank .shops-list a .shop-list-icon {
+  border-top: 1px solid #d1ac3b;
+  background-color: #f0e4c0;
+  padding: 5px;
+}
+
+.home-shops-rank .shops-list a .shop-list-icon li {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 20px;
+  color: #b5901f;
+}
+
+.home-shops-rank .shops-list a .shop-list-icon .no-existence {
+  opacity: 0.3;
+}
+
+.home-shops-rank .shops-list a .shop-list-like {
+  border-top: 1px solid #d1ac3b;
+  background-color: #f0e4c0;
+  padding: 5px;
+}
+
+.home-shops-rank .shops-list a .shop-list-like li {
+  display: inline-block;
+  font-size: 15px;
+  margin: 0 10px;
   color: #b5901f;
 }
 
@@ -818,7 +905,7 @@ main nav ul li i {
 
 .shops-index .shops-list:hover {
   transition: 0.5s;
-  transform: scale(1.2, 1.2);
+  transform: scale(1.1, 1.1);
   opacity: 0.7;
 }
 
@@ -1399,6 +1486,90 @@ main nav ul li i {
 }
 
 .admin-box-form-index .admin-form-list-empty {
+  color: #f00;
+  position: absolute;
+  top: 300px;
+  left: 580px;
+}
+
+.admin-box-form-comments {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: 50px auto;
+}
+
+.admin-box-form-comments .admin-form-list {
+  width: 100%;
+  border: 1px solid #d1ac3b;
+  background-color: #fff;
+}
+
+.admin-box-form-comments .admin-form-list ul {
+  margin: 10px;
+}
+
+.admin-box-form-comments .admin-form-list ul li {
+  border-bottom: 1px solid #d1ac3b;
+  margin: 5px 0;
+  font-size: 13px;
+}
+
+.admin-box-form-comments .admin-form-list ul li p {
+  padding: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.admin-box-form-comments .admin-form-list ul li:last-child {
+  border-bottom: none;
+  text-align: center;
+}
+
+.admin-box-form-comments .admin-form-list ul li:last-child span {
+  display: inline-block;
+  margin: 0 30px;
+}
+
+.admin-box-form-comments .admin-form-list ul li a {
+  color: #b5901f;
+  text-decoration: underline;
+}
+
+.admin-box-form-comments .admin-form-list ul li a:hover {
+  opacity: 0.4;
+}
+
+.admin-box-form-comments .admin-form-list ul li input {
+  text-align: center;
+  color: #f00;
+  text-decoration: underline;
+}
+
+.admin-box-form-comments .admin-form-list ul li input:hover {
+  opacity: 0.4;
+}
+
+.admin-box-form-comments .admin-form-list ul .positive {
+  color: #f00;
+}
+
+.admin-box-form-comments .admin-form-list ul .positive i {
+  font-size: 23px;
+}
+
+.admin-box-form-comments .admin-form-list ul .negative {
+  color: #336699;
+}
+
+.admin-box-form-comments .admin-form-list ul .negative i {
+  font-size: 23px;
+}
+
+.admin-box-form-comments .admin-form-list-empty {
   color: #f00;
   position: absolute;
   top: 300px;

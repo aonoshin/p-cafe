@@ -1,7 +1,7 @@
 @extends('layouts.index')
 
 @section('header-bg')
-<div class="header-bg" style="background-image:url('/storage/no-icon.png')">
+<div class="header-bg" style="background-image:url('/storage/all-cafe-bg.jpg')">
     <div class="header-bg-text">
         <h1>最近登録されたカフェ一覧</h1>
         <h2>ー RECENTRY CREATE ー</h2>
@@ -11,7 +11,7 @@
 
 @section('main')
 <div class="shops-index">
-    @forelse($shops as $shop)
+    @forelse($crs as $shop)
         <a href="{{route('shops.show', ['shop' => $shop->id])}}" class="shops-list">
             <p class="shop-list-name">{{$shop->name}}</p>
             @if($shop->image == null)

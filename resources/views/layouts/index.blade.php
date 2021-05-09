@@ -46,7 +46,8 @@
     </li>
     <li class="main-tema"><a href="{{route('shops.created.index')}}">最近登録されたカフェ</a></li>
     <li class="main-tema"><a href="{{route('shops.updated.index')}}">最近更新されたカフェ</a></li>
-    <li class="main-tema"><a href="#">お気に入りカフェ</a></li>
+    <li class="main-tema"><a href="{{route('shops.favorite.index')}}">お気に入りカフェ</a></li>
+    <li class="main-tema"><a href="{{route('shops.rank.index')}}">人気のカフェトップ10</a></li>
   </ul>
 </div>
 

@@ -3,17 +3,17 @@
 @section('breadcrumbs', Breadcrumbs::render('shops.index'))
 
 @section('header-bg')
-<div class="header-bg" style="background-image:url('/storage/no-icon.png')">
+<div class="header-bg" style="background-image:url('/storage/all-cafe-bg.jpg')">
     <div class="header-bg-text">
         <h1>カフェ一覧</h1>
-        <h2>ー 渋谷のカフェ ー</h2>
+        <h2>ー ALL CAFE ー</h2>
     </div>
 </div>
 @endsection
 
 @section('main')
 <div class="shops-index">
-    @forelse($shops as $shop)
+    @forelse($shopss as $shop)
         <a href="{{route('shops.show', ['shop' => $shop->id])}}" class="shops-list">
             <p class="shop-list-name">{{$shop->name}}</p>
             @if($shop->image == null)

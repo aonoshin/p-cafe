@@ -178,7 +178,12 @@
                     <th>該当テーマ</th>
                     <td colspan="3">
                         @foreach($temas as $tema)
-                            <input type="checkbox" name="tema_id[]" value="{{$tema->id}}" @if(old('tema_id', $shop->tema_id) == $tema->id) checked @endif>&nbsp;{{$tema->name}}
+                            <input
+                                type="checkbox"
+                                name="tema_id[]"
+                                value="{{$tema->id}}"
+                                @if(in_array($tema->id, old('tema_id', $shop->temas->pluck('id')->toArray() ?? []))) checked @endif
+                            >&nbsp;{{$tema->name}}
                         @endforeach
                     </td>
                 </tr>

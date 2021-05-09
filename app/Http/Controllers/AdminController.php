@@ -10,6 +10,7 @@ use App\User;
 use App\Shop;
 use App\Area;
 use App\Tema;
+use App\Comment;
 use Storage;
 
 class AdminController extends Controller
@@ -105,6 +106,13 @@ class AdminController extends Controller
         return redirect('admin/temas');
     }
 
+    public function commentIndex(Comment $comment){
+        $comments = Comment::orderBy('updated_at', 'desc')->get();
+        $user = $comment->user_id;
+        dd($user);
+        return view('admin.comments.index', ['comments' => $comments, 'user' => $user]);
+    }
+
     public function shopIndex(){
         $shops = Shop::orderBy('updated_at', 'desc')->get();
         return view('admin.shops.index', ['shops' => $shops]);
@@ -141,7 +149,6 @@ class AdminController extends Controller
         $shop->capacity = $request->capacity;
         $shop->cuisine = $request->cuisine;
         $shop->area_id = $request->area_id;
-        $shop->tema_id = $request->tema_id;
         $shop->user_id = $request->user()->id;
         if($shop->image = $request->image){
             $image = $request->file('image');
@@ -149,6 +156,8 @@ class AdminController extends Controller
             $shop->image = Storage::disk('s3')->url($path);
         }
         $shop->save();
+        $shop->temas()->sync($request->tema_id);
+
         session()->flash('flash-message', '登録が完了しました！');
         return redirect(route('admin.shops.show', ['shop' => $shop->id]));
     }
@@ -178,7 +187,6 @@ class AdminController extends Controller
         $shop->capacity = $request->capacity;
         $shop->cuisine = $request->cuisine;
         $shop->area_id = $request->area_id;
-        $shop->tema_id = $request->tema_id;
         $shop->user_id = $request->user()->id;
         if($shop->image = $request->image){
             $image = $request->file('image');
@@ -186,6 +194,7 @@ class AdminController extends Controller
             $shop->image = Storage::disk('s3')->url($path);
         }
         $shop->save();
+        $shop->temas()->sync($request->tema_id);
         session()->flash('flash-message', '更新が完了しました！');
         return redirect(route('admin.shops.show', ['shop' => $shop->id]));
     }

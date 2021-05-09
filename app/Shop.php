@@ -40,10 +40,6 @@ class Shop extends Model
         return $this->belongsTo('App\Area');
     }
 
-    public function tema(){
-        return $this->belongsTo('App\Tema');
-    }
-
     public function likes(){
         return $this->hasMany('App\Like', 'shop_id');
     }
@@ -54,6 +50,11 @@ class Shop extends Model
 
     public function tema_shops(){
         return $this->hasMany('App\TemaShop');
+    }
+
+    public function temas()
+    {
+        return $this->belongsToMany(Tema::class, 'tema_shops');
     }
 
     /**

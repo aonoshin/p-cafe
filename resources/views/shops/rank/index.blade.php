@@ -1,17 +1,17 @@
 @extends('layouts.index')
 
 @section('header-bg')
-<div class="header-bg" style="background-image:url('/storage/no-icon.png')">
+<div class="header-bg" style="background-image:url('/storage/rank-cafe-bg.jpg')">
     <div class="header-bg-text">
-        <h1>最近更新されたカフェ一覧</h1>
-        <h2>ー RECENTRY UPDATE ー</h2>
+        <h1>人気のカフェ トップ10</h1>
+        <h2>ー RANKING ー</h2>
     </div>
 </div>
 @endsection
 
 @section('main')
 <div class="shops-index">
-    @forelse($ups as $shop)
+    @forelse($shops as $shop)
         <a href="{{route('shops.show', ['shop' => $shop->id])}}" class="shops-list">
             <p class="shop-list-name">{{$shop->name}}</p>
             @if($shop->image == null)

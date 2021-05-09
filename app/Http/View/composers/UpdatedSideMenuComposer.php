@@ -9,13 +9,11 @@ use App\Shop;
 class UpdatedSideMenuComposer
 {
     public function compose(View $view){
-        return $view->with('shops', $this->getUpdatedShop());
+        return $view->with('ups', $this->getUpdatedShop());
     }
 
     private function getUpdatedShop(){
-        $now = Carbon::today();
-        $month = Carbon::today()->subDay(30);
-        $shops = Shop::whereBetween('updated_at', [$month, $now])->orderBy('updated_at', 'desc')->get();
+        $shops = Shop::where('updated_at', '>=', Carbon::now()->subDays(1))->orderBy('updated_at', 'desc')->get();
         return $shops;
     }
 }

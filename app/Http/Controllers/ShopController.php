@@ -19,7 +19,7 @@ class ShopController extends Controller
     
     public function index(){
         $shops = Shop::orderBy('updated_at', 'desc')->get();
-        return view('shops.index', ['shops' => $shops]);
+        return view('shops.index', ['shopss' => $shops]);
     }
 
     public function show(Shop $shop){
@@ -57,7 +57,15 @@ class ShopController extends Controller
         return view('shops.area.index', ['shops' => $shops, 'area' => $area]);
     }
 
-    public function shopFavoriteIndex(){
-        return view('shops.favorite.index');
+    public function shopFavoriteIndex(Shop $shop, Like $like){
+        $shops = Shop::whereHas('likes', function($query) {
+            $query->where('user_id', Auth::id());
+        })->orderBy('created_at', 'desc')->get();
+        return view('shops.favorite.index', ['shops' => $shops]);
+    }
+
+    public function shopRankIndex(){
+        $shops = Shop::withCount('likes')->orderBy('likes_count', 'desc')->paginate(3);
+        return view('shops.rank.index', ['shops' => $shops]);
     }
 }

@@ -38,6 +38,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::get('/temas/{tema}/edit', 'AdminController@temaEdit')->name('temas.edit')->middleware('can:admin')->where('tema', '[0-9]+');
     Route::put('/temas/{tema}', 'AdminController@temaUpdate')->name('temas.update')->middleware('can:admin')->where('tema', '[0-9]+');
     Route::post('/temas/delete/{id}', 'AdminController@temaDelete')->name('temas.delete')->middleware('can:admin')->where('id', '[0-9]+');
+    Route::get('/comments', 'AdminController@commentIndex')->name('comments.index')->middleware('can:admin');
 });
 
 // ユーザー
@@ -60,6 +61,8 @@ Route::group(['prefix' => 'shops', 'as' => 'shops.'], function(){
     Route::get('/{shop}', 'ShopController@show')->name('show')->where('shop', '[0-9]+');
     Route::get('/like/{id}', 'ShopController@like')->name('like')->where('id', '[0-9]+')->middleware('auth');
     Route::get('/unlike/{id}', 'ShopController@unlike')->name('unlike')->where('id', '[0-9]+')->middleware('auth');
+    Route::get('/favorite', 'ShopController@shopFavoriteIndex')->name('favorite.index');
+    Route::get('/rank', 'ShopController@shopRankIndex')->name('rank.index');
     Route::get('/{area}', 'ShopController@shopAreaIndex')->name('area.index');
 });
 
@@ -76,8 +79,9 @@ Route::group(['prefix' => 'shops', 'as' => 'comments.', 'middleware' => 'auth'],
     Route::get('/{shop}/comments/create', 'CommentController@create')->name('create')->where('shop', '[0-9]+');
     Route::post('/{shop}/comments/store', 'CommentController@store')->name('store')->where('shop', '[0-9]+');
     Route::get('/{shop}/comments/{comment}/edit', 'CommentController@edit')->name('edit')->where('shop|comment', '[0-9]+');
-    Route::put('/{shop}/comments/{comment}', 'CommentController@update')->name('update')->where('shop|comment', '[0-9]+');
+    Route::put('/{shop}/comments/{comment}', 'CommentController@update')->name('update')->where('shop|comment', '[0-9]+')->middleware('can:view,comment');
 });
+// Route::post('/users/{user}/comments/{id}', 'CommentController@delete')->name('comments.delete')->where('id', '[0-9]+');
 Route::post('/comments/{id}', 'CommentController@delete')->name('comments.delete')->where('id', '[0-9]+');
 
 Auth::routes();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Shop;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('home.index');
+    public function index(){
+        $rankShops = Shop::withCount('likes')->orderBy('likes_count', 'desc')->paginate(3);
+        $createShops = Shop::orderBy('created_at', 'desc')->paginate(3);
+        return view('home.index', ['rankShops' => $rankShops, 'createShops' => $createShops]);
     }
 }

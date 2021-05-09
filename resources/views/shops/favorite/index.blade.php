@@ -1,7 +1,5 @@
 @extends('layouts.index')
 
-@section('breadcrumbs', Breadcrumbs::render('shops.favorite.index', $favorite))
-
 @section('header-bg')
 <div class="header-bg" style="background-image:url('/storage/favorite-cafe-bg.jpg')">
     <div class="header-bg-text">
