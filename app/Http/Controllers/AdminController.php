@@ -108,9 +108,7 @@ class AdminController extends Controller
 
     public function commentIndex(Comment $comment){
         $comments = Comment::orderBy('updated_at', 'desc')->get();
-        $user = $comment->user_id;
-        dd($user);
-        return view('admin.comments.index', ['comments' => $comments, 'user' => $user]);
+        return view('admin.comments.index', ['comments' => $comments]);
     }
 
     public function shopIndex(){

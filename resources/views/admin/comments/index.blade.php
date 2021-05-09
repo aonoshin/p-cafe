@@ -21,8 +21,8 @@
                     <span>最終更新日：{{$comment->updated_at}}</span>
                 </li>
                 <li>
-                    <span>投稿者：<a href="{{route('users.show', ['user' => $user->id])}}">{{$comment->user->name}}</a></span>&nbsp;&nbsp;
-                    <span>投稿対象のカフェ：{{$comment->shop->name}}</span>
+                    <span>投稿者：<a href="{{route('users.show', ['user' => $comment->user_id])}}">{{$comment->user->name}}</a></span>&nbsp;&nbsp;
+                    <span>投稿対象のカフェ：<a href="{{route('shops.show', ['shop' => $comment->shop_id])}}">{{$comment->shop->name}}</a></span>
                 </li>
                 <li>
                     <span><a href="#">編集</a></span>
