@@ -40,7 +40,7 @@
     <li class="main-tema">ーテーマから探すー
       <ul class="sub-tema">
         @foreach($temas as $tema)
-          <li><a href="">{{$tema->name}}</a></li>
+          <li><a href="{{route('shops.tema.index', ['tema' => $tema->url])}}">{{$tema->name}}</a></li>
         @endforeach
       </ul>
     </li>

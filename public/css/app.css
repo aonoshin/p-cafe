@@ -721,6 +721,22 @@ main nav ul li i {
   opacity: 0.3;
 }
 
+.admin-box-shops-show .admin-shops-show-hash {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.admin-box-shops-show .admin-shops-show-hash li {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.admin-box-shops-show .admin-shops-show-hash li a {
+  color: #b5901f;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .admin-box-shops-show .admin-shops-show-table {
   width: 80%;
   margin: 30px auto;
@@ -1085,6 +1101,26 @@ main nav ul li i {
 
 .shops-show .shops-show-data ul .unstar {
   opacity: 0.3;
+}
+
+.shops-show .shops-show-hash {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.shops-show .shops-show-hash li {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.shops-show .shops-show-hash li a {
+  color: #b5901f;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.shops-show .shops-show-hash li a:hover {
+  opacity: 0.4;
 }
 
 .shops-show .shops-show-table {

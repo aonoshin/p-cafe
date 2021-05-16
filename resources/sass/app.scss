@@ -635,6 +635,19 @@ main{
             }
         }
     }
+    .admin-shops-show-hash {
+        margin: 20px 0;
+        text-align: center;
+        li {
+            display: inline-block;
+            margin: 0 20px;
+            a {
+                color: $strong-brown;
+                font-weight: bold;
+                text-decoration: underline;
+            }
+        }
+    }
     .admin-shops-show-table {
         width: 80%;
         margin: 30px auto;
@@ -950,6 +963,22 @@ main{
             }
             .unstar {
                 opacity: 0.3;
+            }
+        }
+    }
+    .shops-show-hash {
+        margin: 40px 0;
+        text-align: center;
+        li {
+            display: inline-block;
+            margin: 0 20px;
+            a {
+                color: $strong-brown;
+                font-weight: bold;
+                text-decoration: underline;
+                &:hover {
+                    opacity: 0.4;
+                }
             }
         }
     }

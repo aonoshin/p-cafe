@@ -9,7 +9,9 @@ use Illuminate\Support\Collection;
 use App\Shop;
 use App\Like;
 use App\Area;
+use App\Tema;
 use App\Comment;
+use App\TemaShop;
 
 class ShopController extends Controller
 {
@@ -55,6 +57,13 @@ class ShopController extends Controller
         $area = Area::where('url', $area)->first();
         $shops = Shop::where('area_id', $area->id)->orderBy('created_at', 'desc')->get();
         return view('shops.area.index', ['shops' => $shops, 'area' => $area]);
+    }
+
+    public function shopTemaIndex($tema){
+        $shops = Shop::whereHas('temas', function($query) use ($tema){
+            return $query->where('temas.url', $tema);
+        })->orderBy('created_at', 'desc')->get();
+        return view('shops.tema.index', ['shops' => $shops, 'tema' => $tema]);
     }
 
     public function shopFavoriteIndex(Shop $shop, Like $like){

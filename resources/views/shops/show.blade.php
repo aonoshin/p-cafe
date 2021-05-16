@@ -122,7 +122,11 @@
             @endforeach
         </ul>
     </div>
-    
+    <ul class="shops-show-hash">
+        @foreach($shop->tema_shops as $tema_shop)
+            <li><a href="#">＃{{$tema_shop->tema->name}}</a></li>
+        @endforeach
+    </ul>
     <div class="shops-show-table">
         <table>
             <tbody>

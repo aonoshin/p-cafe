@@ -64,6 +64,7 @@ Route::group(['prefix' => 'shops', 'as' => 'shops.'], function(){
     Route::get('/favorite', 'ShopController@shopFavoriteIndex')->name('favorite.index');
     Route::get('/rank', 'ShopController@shopRankIndex')->name('rank.index');
     Route::get('/{area}', 'ShopController@shopAreaIndex')->name('area.index');
+    Route::get('/tema/{tema}', 'ShopController@shopTemaIndex')->name('tema.index');
 });
 
 // お問い合わせ

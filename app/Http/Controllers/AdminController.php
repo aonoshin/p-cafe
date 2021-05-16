@@ -117,7 +117,8 @@ class AdminController extends Controller
     }
 
     public function shopShow(Shop $shop){
-        return view('admin.shops.show', ['shop' => $shop]);
+        $temas = Tema::orderBy('created_at', 'desc')->get();
+        return view('admin.shops.show', ['shop' => $shop, 'temas' => $temas]);
     }
 
     public function shopCreate(Shop $shop, Tema $tema){
